@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Basic Writes Blog</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="icon" href="/favicon.png">
+</head>
+<body>
+    <div class="allblogs">
+        <div class="blog-header">
+            <h1>Basic Writes Blog</h1>
+            <a href="/blogs/new" id="add-btn">Add Blog</a>
+        </div>
+        <div class="blog-display">
+            <% for (var i=0; i<blogs.length; i++){ %>
+                <div class="blog">
+                    <h2> <%= blogs[i].title %> </h2>
+                    <h3> By <span class="author"><%= blogs[i].author %></span> </h3>
+                    <p class="date">Created At: <%= blogs[i].createdAt.toLocaleDateString() %></p>  
+                    <p class="description"> <%= blogs[i].body.slice(0, 200) + "...." %> </p>
+                    <a href="/blogs/<%= blogs[i].id %>" class="more-btn">Read More</a>
+                </div>    
+            <% } %>    
+        </div>
+    </div>
+</body>
+</html>
